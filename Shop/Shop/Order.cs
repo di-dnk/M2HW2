@@ -9,8 +9,8 @@ namespace Shop
     public class Order
     {
         public int Id { get; private set; }
-        public Customer Customer { get; private set; }
-        public Product[] Products { get; private set; }
+       
+        public List<Product> Products { get; private set; }
 
         public decimal TotalPrice
         {
@@ -24,10 +24,9 @@ namespace Shop
             }
         }
 
-        public Order(int id, Customer customer, Product[] products)
+        public Order(int id, List<Product> products)
         {
-            Id = id;
-            Customer = customer;
+            Id = id;            
             Products = products;
         }
     }

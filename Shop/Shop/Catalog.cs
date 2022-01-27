@@ -9,6 +9,7 @@ namespace Shop
     public class Catalog
     {
         public Product[] Products = new Product[15];
+
         public Catalog()
         {
             Products[0] = new Product("Ice-cream", 30.9M);

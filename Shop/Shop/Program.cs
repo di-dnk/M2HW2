@@ -6,23 +6,19 @@ namespace Shop
     internal class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Enter your name");
-            Customer customer = new Customer();
-            customer.Name = Console.ReadLine();
-            
-            Catalog catalog = new Catalog();                       
-            foreach (Product product in catalog.Products)
-                Console.WriteLine($"{product.Name} Price: {product.Price}");
-
+        { 
+            MarketService.Instance.ShowCatalog();
             Console.WriteLine("Select products (Enter the product name or 0 to complete the purchase)");
-            Basket basket = new Basket();
-            basket.Add();
-                        
-            Notification notification = new Notification();
-            Order order = notification.MakeOrder(customer, basket);
-            
-            Console.WriteLine($"{customer.Name}, your code order {order.Id} in the amount of {order.TotalPrice} UAH");
+            MarketService.Instance.Initialize();
+            for (int i = 0; i < 10; i++)
+            {
+                string product = Console.ReadLine();
+                if (product == "0")
+                    break;
+                else
+                    MarketService.Instance.AddProduct(product);
+            }
+            MarketService.Instance.MakeOrder();           
         }
     }
 }
