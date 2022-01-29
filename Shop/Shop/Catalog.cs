@@ -27,6 +27,12 @@ namespace Shop
             Products[12] = new Product("Cheese", 159.7M);
             Products[13] = new Product("Persimmon", 24.5M);
             Products[14] = new Product("Peach", 33.3M);            
-        }        
+        }
+
+        public void ShowCatalog()
+        {            
+            foreach (Product product in Products)
+                Console.WriteLine($"{product.Name} Price: {product.Price}");
+        }
     }
 }
