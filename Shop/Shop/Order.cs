@@ -10,7 +10,7 @@ namespace Shop
     {
         public int Id { get; private set; }
        
-        public List<Product> Products { get; private set; }
+        public List<Product> Products { get; set; }
 
         public decimal TotalPrice
         {
@@ -28,6 +28,6 @@ namespace Shop
         {
             Id = id;            
             Products = products;
-        }
+        }       
     }
 }
